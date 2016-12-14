@@ -1,4 +1,4 @@
-# Text Sherlock (or Sherlock)
+# Text Sherlock (or Sherlock) [![Build Status](https://travis-ci.org/boidolr/text-sherlock.svg?branch=master)](https://travis-ci.org/boidolr/text-sherlock)
 
 Provides a fast, easy to install and simple to use search engine for text, but optimized for source code. An alternative, [OpenGrok](https://github.com/OpenGrok/OpenGrok), requires too much time to install (though it may be worth it for some), but is more feature rich. Text Sherlock will give you a much easier setup, a text indexer, and a web app interface for searching with _very little_ effort.
 
