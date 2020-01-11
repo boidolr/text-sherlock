@@ -14,7 +14,7 @@ mkdir -p ../data/indexes
 
 # for the sherlock.webapp
 echo "grabbing flask"
-curl -o flask.zip https://github.com/pallets/flask/archive/0.11.1.zip
+curl -o flask.zip https://github.com/pallets/flask/archive/1.1.1.zip
 unzip flask.zip
 cp -r mitsuhiko-flask-*/flask ../core
 
@@ -34,28 +34,28 @@ curl -o Werkzeug.tar.gz http://pypi.python.org/packages/source/W/Werkzeug/Werkze
 tar -xvzf Werkzeug.tar.gz
 cp -r Werkzeug-*/werkzeug ../core
 
-# cherrypy web server
-echo "grabbing cherrypy"
-curl -o cherrypy.zip http://download.cherrypy.org/cherrypy/8.1.2/CherryPy-8.1.2.zip
-unzip cherrypy.zip
-cp -r CherryPy*/py2/cherrypy ../core
+# cheroot web server
+echo "grabbing cheroot"
+curl -o cheroot.tar.gz https://files.pythonhosted.org/packages/9b/4d/2e51e7ce60f54a5279e91648b9b9b497d4d22bc624ecae6af1b6866144a7/cheroot-8.2.1.tar.gz
+tar -xvzf cheroot.tar.gz
+cp -r cheroot-8.2.1 ../core
 
 # required for sherlock.webapp
 echo "grabbing Jinja2"
-curl -o jinja2.tar.gz http://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.8.tar.gz
+curl -o jinja2.tar.gz http://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.10.3.tar.gz
 tar -xvzf jinja2.tar.gz
 cp -r Jinja2*/jinja2 ../core
 
 # required for the sherlock indexer
 echo "grabbing Whoosh"
-curl -o whoosh.zip http://pypi.python.org/packages/source/W/Whoosh/Whoosh-2.5.7.zip
+curl -o whoosh.zip http://pypi.python.org/packages/source/W/Whoosh/Whoosh-2.7.4.zip
 unzip whoosh.zip
 cp -r Whoosh*/src/whoosh ../core
 
 # dependency for sherlock.transformer
 echo "grabbing Pygments"
 # or the latest: https://bitbucket.org/birkenfeld/pygments-main/get/default.zip
-curl -o pygments.zip https://bitbucket.org/birkenfeld/pygments-main/get/2.1.3.zip
+curl -o pygments.zip https://bitbucket.org/birkenfeld/pygments-main/get/2.5.2.zip
 unzip pygments.zip
 cp -r *pygments*/src/pygments ../core
 
