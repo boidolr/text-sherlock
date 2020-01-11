@@ -34,10 +34,10 @@ def run():
     """Runs the flask app server
     """
     server_type = core_settings.SERVER_TYPE
-    if server_type == 'cherrypy':
+    if server_type == 'cheroot':
         # near-production level server (small to medium traffic)
-        from . import server_cherrypy
-        server_cherrypy.run()
+        from . import server_cheroot
+        server_cheroot.run()
     else:  # default server (flask/werkzeug)
         if SERVER_PROCESSES > 1 and SERVER_IS_THREADED:
             raise Exception('Choose either multi-threaded or multi-process')

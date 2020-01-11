@@ -5,7 +5,7 @@
 __all__ = [
     'whoosh', 'flask',
     'pygments', 'settings',
-    'cherrypy_wsgiserver', 'flaskext',
+    'cheroot_wsgi_wsgiserver', 'flaskext',
     # settings
     'FULL_INDEXES_PATH', 'FORCE_INDEX_REBUILD',
     'FULL_INDEX_PATHS'
