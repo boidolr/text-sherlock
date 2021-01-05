@@ -3,9 +3,10 @@ language: python
 cache: pip
 
 python:
-  - '3.5'
   - '3.6'
   - '3.7'
+  - '3.8'
+  - '3.8'
 
 env:
   - XAPIAN='true'
@@ -13,8 +14,6 @@ env:
 
 jobs:
   exclude:
-    - python: '3.5'
-      env: XAPIAN='true'
     - python: '3.6'
       env: XAPIAN='true'
 
