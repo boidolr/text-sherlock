@@ -78,7 +78,7 @@ In [`settings.py`](settings.py):
 
 ## Core packages
 
-**Requires Python 3.5+**
+**Requires Python 3.6+**
 
 * [Whoosh](https://whoosh.readthedocs.io/en/stable/quickstart.html)
 * [Flask](https://palletsprojects.com/p/flask/)
