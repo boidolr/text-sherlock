@@ -1,0 +1,54 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "25 7 */9 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13-dev"]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python-version }}"
+          cache: pip
+          cache-dependency-path: |
+            setup/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          pip3 install -r setup/requirements.txt
+          pip3 install 'sphinx<2' flake8
+          # TODO: optional xapian install
+
+      - name: Run tests
+        run: python3 main.py --test
+
+      - name: Run tests
+        run: python3 main.py --test
+
+      - name: Run linter
+        run: |
+            # E266 - `##` used in comments
+            # E501 - line length
+            # E402 - import order
+            # F401,F403,F405 - imports in `__init__.py` and subsequent use, star imports where imported names can not be detected
+            # ...and the default ignores
+            flake8 . --ignore=E121,E123,E126,E226,E24,E266,E402,E501,E704,F401,F403,F405,W503,W504 --exclude=example.py
